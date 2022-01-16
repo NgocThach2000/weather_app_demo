@@ -10,20 +10,20 @@ class Location {
 
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      return Future.error('Location services are disabled.');
+      return Future.error('Định vị tắt!!!');
     }
 
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        return Future.error('Location permissions are denied');
+        return Future.error('Quyền truy cập bị từ chối!!!');
       }
     }
 
     if (permission == LocationPermission.deniedForever) {
       return Future.error(
-          'Location permissions are permanently denied, we cannot request permissions.');
+          'Quyền vị trí bị từ chối vĩnh viễn, chúng tôi không thể yêu cầu quyền!!!');
     }
 
     return await Geolocator.getCurrentPosition();
@@ -35,6 +35,8 @@ class Location {
           desiredAccuracy: LocationAccuracy.low);
       latitude = position.latitude;
       longtitude = position.longitude;
+      print(latitude);
+      print(longtitude);
     } catch (error) {
       print('Đã có lỗi: $error!!!');
     }

@@ -4,7 +4,8 @@ import 'package:weather_app/utils/constants.dart';
 
 class WeatherModel {
   Future<dynamic> getCityWeather(String cityName) async {
-    var url = '$openWeatherMapURL?q=$cityName&appid=$apiKey&units=metric';
+    var url =
+        '$openWeatherMapURL?q=$cityName&appid=$apiKey&units=metric&lang=vi';
     NetworkHelper networkHelper = NetworkHelper(url: url);
     var weatherData = await networkHelper.getData();
     return weatherData;
@@ -15,7 +16,7 @@ class WeatherModel {
     await location.GetCurrentLocation();
 
     var url =
-        '$openWeatherMapURL?lat=${location.latitude}&lon=${location.longtitude}&appid=$apiKey&units=metric';
+        '$openWeatherMapURL?lat=${location.latitude}&lon=${location.longtitude}&appid=$apiKey&units=metric&lang=vi';
     NetworkHelper networkHelper = NetworkHelper(url: url);
     var weatherData = await networkHelper.getData();
     return weatherData;
@@ -43,13 +44,13 @@ class WeatherModel {
 
   String getMessage(int temp) {
     if (temp > 25) {
-      return 'It\'s 🍦 time';
+      return 'Thích hợp để ăn 🍦 trong lúc này';
     } else if (temp > 20) {
-      return 'Time for shorts and 👕';
+      return 'Thời tiết mát mẻ ☘️';
     } else if (temp < 10) {
-      return 'You\'ll need 🧣 and 🧤';
+      return 'Bạn sẽ cần mang theo 🧣 và 🧤';
     } else {
-      return 'Bring a 🧥 just in case';
+      return 'Mang áo 🧥 vào lúc này';
     }
   }
 }

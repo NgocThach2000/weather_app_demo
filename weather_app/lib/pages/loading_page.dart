@@ -24,13 +24,7 @@ class _LoadingPageState extends State<LoadingPage> {
 
   Future<void> getLocationData() async {
     var weatherData = await WeatherModel().getLocationWeather();
-    Navigator.pushNamed(
-      context,
-      LocationPage.id,
-      arguments: LocationPage(
-        locationWeather: weatherData,
-      ),
-    );
+    Navigator.of(context).pushNamed(LocationPage.id, arguments: weatherData);
   }
 
   Widget build(BuildContext context) {

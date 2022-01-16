@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:weather_app/models/weather.dart';
+import 'package:weather_app/models/weather_brain.dart';
 import 'package:weather_app/pages/location_page.dart';
 
 class LoadingPage extends StatefulWidget {
@@ -24,7 +24,21 @@ class _LoadingPageState extends State<LoadingPage> {
 
   Future<void> getLocationData() async {
     var weatherData = await WeatherModel().getLocationWeather();
-    Navigator.of(context).pushNamed(LocationPage.id, arguments: weatherData);
+    var weatherForecastData = await WeatherModel().getLocationWeatherForecast();
+
+    // Navigator.of(context).pushNamed(LocationPage.id, arguments: {
+    //   'locationWeather': weatherData,
+    //   'locationWeatherForecast': weatherForecastData
+    // });
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => LocationPage(
+          locationWeather: weatherData,
+          locationWeatherForecast: weatherForecastData,
+        ),
+      ),
+    );
   }
 
   Widget build(BuildContext context) {

@@ -2,36 +2,52 @@ import 'package:flutter/material.dart';
 
 const apiKey = 'df8ea152b353a0891e451d79215dbb77';
 const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
+const openWeatherMapForecastURL =
+    'https://api.openweathermap.org/data/2.5/forecast';
 
 const kTempTextStyle = TextStyle(
   fontFamily: 'Spartan MB',
-  fontSize: 100.0,
+  fontSize: 100,
 );
 
 const kConditionTextStyle = TextStyle(
-  fontSize: 50.0,
+  fontSize: 50,
 );
 
 const kTitleTextStyle = TextStyle(
   fontFamily: 'Spartan MB',
-  fontSize: 50.0,
+  fontSize: 35,
 );
 
 const kIconTextStyle = TextStyle(
-  fontSize: 30.0,
+  fontSize: 30,
 );
 
 const kMessageTextStyle = TextStyle(
   fontFamily: 'Spartan MB',
-  fontSize: 18.0,
+  fontSize: 20,
 );
 
 const kNormalTextStyle = TextStyle(
   fontFamily: 'Spartan MB',
-  fontSize: 25.0,
+  fontSize: 25,
 );
 
-const kButtonTextStyle = TextStyle(
-  fontFamily: 'Spartan MB',
-  fontSize: 30.0,
+const kTextFieldInputDecoration = InputDecoration(
+  filled: true,
+  fillColor: Colors.white,
+  icon: Icon(
+    Icons.location_city,
+    color: Colors.white,
+  ),
+  hintText: 'Enter City Name',
+  hintStyle: TextStyle(
+    color: Colors.grey,
+  ),
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.all(
+      Radius.circular(10.0),
+    ),
+    borderSide: BorderSide.none,
+  ),
 );

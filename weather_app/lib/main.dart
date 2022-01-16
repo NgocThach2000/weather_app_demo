@@ -17,9 +17,6 @@ class MyApp extends StatelessWidget {
       initialRoute: LoadingPage.id,
       routes: {
         LoadingPage.id: (context) => LoadingPage(),
-        LocationPage.id: (context) => LocationPage(
-              locationWeather: ModalRoute.of(context)!.settings.arguments,
-            ),
         CityPage.id: (context) => CityPage()
       },
     );

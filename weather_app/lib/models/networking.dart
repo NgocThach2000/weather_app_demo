@@ -10,7 +10,7 @@ class NetworkHelper {
       String data = response.body;
       return jsonDecode(data);
     } else {
-      print('Mã lỗi: ${response.statusCode} không có phản hồi từ máy chủ!!!');
+      print('Error: ${response.statusCode}');
     }
   }
 }

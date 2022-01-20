@@ -25,3 +25,5 @@ libraries used in the project:
 </ul>
 
 A weather application demo using the site's API https://openweathermap.org/
+
+<h3>Source code: https://github.com/NgocThach2000/weather_app_demo</h3>

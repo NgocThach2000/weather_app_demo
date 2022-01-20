@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       initialRoute: LoadingPage.id,
       routes: {
         LoadingPage.id: (context) => LoadingPage(),
-        CityPage.id: (context) => CityPage()
+        CityPage.id: (context) => CityPage(),
       },
     );
   }

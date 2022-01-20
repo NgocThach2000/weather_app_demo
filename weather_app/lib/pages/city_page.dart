@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/utils/constants.dart';
 import 'package:weather_app/utils/uidata.dart';
-import 'package:weather_app/models/weather.dart';
 
 class CityPage extends StatefulWidget {
   static String id = 'city_page';

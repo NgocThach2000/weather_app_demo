@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:weather_app/pages/forecast_page.dart';
 import 'package:weather_app/utils/constants.dart';
 import 'package:weather_app/utils/uidata.dart';
 import 'package:weather_app/models/weather_brain.dart';
 import 'package:weather_app/pages/city_page.dart';
 import 'package:weather_app/models/weather.dart';
-import 'package:intl/intl.dart';
+import 'package:weather_app/models/weather.dart';
 import 'package:weather_app/component/resuable_row_card.dart';
 
 class LocationPage extends StatefulWidget {
@@ -24,6 +26,7 @@ class LocationPage extends StatefulWidget {
 
 class _LocationPageState extends State<LocationPage> {
   WeatherModel weatherModel = WeatherModel();
+  Weather iWeather = Weather();
   int? temperature;
   int? condition;
   String? weatherIcon;
@@ -85,9 +88,9 @@ class _LocationPageState extends State<LocationPage> {
         } else {
           double temp = weatherData['main']['temp'];
           temperature = temp.toInt();
-          weatherMessage = weatherModel.getMessage(temperature!);
+          weatherMessage = iWeather.getMessage(temperature!);
           condition = weatherData['weather'][0]['id'];
-          weatherIcon = weatherModel.getWeatherIcon(condition!);
+          weatherIcon = iWeather.getWeatherIcon(condition!);
           cityName = weatherData['name'];
           description = weatherData['weather'][0]['description'];
           weatherItem!.add(
@@ -106,9 +109,9 @@ class _LocationPageState extends State<LocationPage> {
             }
             double temp = weatherForecastData['list'][i]['main']['temp'];
             temperature = temp.toInt();
-            weatherMessage = weatherModel.getMessage(temperature!);
+            weatherMessage = iWeather.getMessage(temperature!);
             condition = weatherForecastData['list'][i]['weather'][0]['id'];
-            weatherIcon = weatherModel.getWeatherIcon(condition!);
+            weatherIcon = iWeather.getWeatherIcon(condition!);
             cityName = weatherForecastData['city']['name'];
             description =
                 weatherForecastData['list'][i]['weather'][0]['description'];
@@ -246,7 +249,16 @@ class _LocationPageState extends State<LocationPage> {
                         Expanded(
                           flex: 2,
                           child: GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ForecastPage(
+                                    ListDataWeather: weatherItem!,
+                                  ),
+                                ),
+                              );
+                            },
                             child: Container(
                               margin: EdgeInsets.all(20),
                               child: Column(
@@ -292,7 +304,16 @@ class _LocationPageState extends State<LocationPage> {
                         Expanded(
                           flex: 1,
                           child: GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ForecastPage(
+                                    ListDataWeather: weatherItem!,
+                                  ),
+                                ),
+                              );
+                            },
                             child: Container(
                               alignment: Alignment.center,
                               child: Text(

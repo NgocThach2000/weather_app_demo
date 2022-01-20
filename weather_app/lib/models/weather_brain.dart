@@ -1,10 +1,11 @@
 import 'package:weather_app/models/networking.dart';
 import 'package:weather_app/models/location.dart';
-import 'package:weather_app/utils/constants.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class WeatherModel {
   Future<dynamic> getCityWeather(String cityName) async {
-    var url = '$openWeatherMapURL?q=$cityName&appid=$apiKey&units=metric';
+    var url =
+        '${dotenv.env['openWeatherMapURL']}?q=$cityName&appid=${dotenv.env['apiKey']}&units=metric';
     NetworkHelper networkHelper = NetworkHelper(url: url);
     var weatherData = await networkHelper.getData();
     return weatherData;
@@ -12,7 +13,7 @@ class WeatherModel {
 
   Future<dynamic> getCityWeatherForecast(String cityName) async {
     var url =
-        '$openWeatherMapForecastURL?q=$cityName&appid=$apiKey&units=metric';
+        '${dotenv.env['openWeatherMapForecastURL']}?q=$cityName&appid=${dotenv.env['apiKey']}&units=metric';
     NetworkHelper networkHelper = NetworkHelper(url: url);
     var weatherData = await networkHelper.getData();
     return weatherData;
@@ -21,9 +22,8 @@ class WeatherModel {
   Future<dynamic> getLocationWeather() async {
     Location location = Location();
     await location.GetCurrentLocation();
-
     var url =
-        '$openWeatherMapURL?lat=${location.latitude}&lon=${location.longtitude}&appid=$apiKey&units=metric';
+        '${dotenv.env['openWeatherMapURL']}?lat=${location.latitude}&lon=${location.longtitude}&appid=${dotenv.env['apiKey']}&units=metric';
     NetworkHelper networkHelper = NetworkHelper(url: url);
     var weatherData = await networkHelper.getData();
     return weatherData;
@@ -34,7 +34,7 @@ class WeatherModel {
     await location.GetCurrentLocation();
 
     var url =
-        '$openWeatherMapForecastURL?lat=${location.latitude}&lon=${location.longtitude}&appid=$apiKey&units=metric';
+        '${dotenv.env['openWeatherMapForecastURL']}?lat=${location.latitude}&lon=${location.longtitude}&appid=${dotenv.env['apiKey']}&units=metric';
     NetworkHelper networkHelper = NetworkHelper(url: url);
     var weatherData = await networkHelper.getData();
     return weatherData;

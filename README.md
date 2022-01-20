@@ -1,4 +1,4 @@
-# weather_app_demo (Flutter Framewo)
+# weather_app_demo (Flutter Framework)
 <ul>
   <li>Dart 2.17.0</li>
   <li>Flutter 2.9.0-1.0</li>

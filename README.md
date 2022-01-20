@@ -4,7 +4,7 @@ The following features:
   
 
 Demo:
-https://user-images.githubusercontent.com/63405663/150323953-d96e9dec-460e-4cf9-9986-14f2bd72411a.mp4
+[![Watch the video](https://user-images.githubusercontent.com/63405663/150323953-d96e9dec-460e-4cf9-9986-14f2bd72411a.mp4)
 
 libraries used in the project: 
 

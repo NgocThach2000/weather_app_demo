@@ -1,5 +1,9 @@
 # weather_app_demo
-The following features:
+<ul>
+  <li>Dart 2.17.0</li>
+  <li>Flutter 2.9.0-1.0</li>
+</ul>
+<h3>The following features:</h3>
 <ul>
   <li>View: the weather for the day and predict the weather for the next 5 days (location or city)</li>
 </ul>

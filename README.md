@@ -17,4 +17,4 @@ libraries used in the project:
 <li>flutter_dotenv: 5.0.2: https://pub.dev/packages/flutter_dotenv</li>
 </ul>
 
-A weather application demo using the site's API https://openweathermap.org/current
+A weather application demo using the site's API https://openweathermap.org/
